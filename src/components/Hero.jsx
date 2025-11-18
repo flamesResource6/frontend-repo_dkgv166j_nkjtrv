@@ -1,5 +1,6 @@
 import Spline from '@splinetool/react-spline';
 import { motion } from 'framer-motion';
+import { Activity, Gauge, Wifi, CreditCard } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -34,6 +35,53 @@ export default function Hero() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a href="#get-started" className="inline-flex items-center justify-center rounded-lg bg-white text-slate-900 px-5 py-3 font-medium shadow/50 shadow-white/10 hover:shadow-white/20 transition">Start free trial</a>
             <a href="#demo" className="inline-flex items-center justify-center rounded-lg bg-white/10 text-white px-5 py-3 font-medium backdrop-blur border border-white/15 hover:bg-white/15 transition">See live demo</a>
+          </div>
+        </motion.div>
+
+        {/* Telemetry HUD video card */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-10 md:mt-14"
+        >
+          <div className="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur overflow-hidden">
+            {/* subtle gradient rim */}
+            <div className="pointer-events-none absolute -inset-px rounded-3xl bg-gradient-to-tr from-emerald-400/25 via-cyan-400/10 to-blue-500/25 opacity-60" />
+
+            <video
+              className="relative z-10 w-full h-full aspect-[16/9] object-cover"
+              src="https://videos.pexels.com/video-files/3184321/3184321-hd_1280_720_30fps.mp4"
+              muted
+              playsInline
+              autoPlay
+              loop
+              preload="metadata"
+            />
+
+            {/* Overlay telemetry chips */}
+            <div className="absolute inset-0 z-10 pointer-events-none p-4 md:p-6">
+              <div className="flex items-center gap-2">
+                <div className="inline-flex items-center gap-2 rounded-xl bg-slate-900/70 border border-white/10 px-3 py-2 backdrop-blur">
+                  <Wifi className="h-4 w-4 text-emerald-300" />
+                  <span className="text-xs text-white/80">Online 94% fleet</span>
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-xl bg-slate-900/70 border border-white/10 px-3 py-2 backdrop-blur">
+                  <Gauge className="h-4 w-4 text-cyan-300" />
+                  <span className="text-xs text-white/80">Vend rate +18%</span>
+                </div>
+              </div>
+              <div className="mt-auto flex flex-wrap gap-2 absolute bottom-4 left-4">
+                <div className="inline-flex items-center gap-2 rounded-xl bg-slate-900/70 border border-white/10 px-3 py-2 backdrop-blur">
+                  <CreditCard className="h-4 w-4 text-blue-300" />
+                  <span className="text-xs text-white/80">Cashless 72%</span>
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-xl bg-slate-900/70 border border-white/10 px-3 py-2 backdrop-blur">
+                  <Activity className="h-4 w-4 text-pink-300" />
+                  <span className="text-xs text-white/80">Pings 1.2k/min</span>
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
