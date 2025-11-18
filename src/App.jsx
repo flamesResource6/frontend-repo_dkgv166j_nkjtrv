@@ -2,12 +2,18 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import Logos from './components/Logos';
+import ScrollVideo from './components/ScrollVideo';
+import ParallaxShowcase from './components/ParallaxShowcase';
+import StickyMetrics from './components/StickyMetrics';
 
 function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <Navbar />
       <Hero />
+      <ScrollVideo />
+      <StickyMetrics />
+      <ParallaxShowcase />
       <Logos />
       <Features />
 
